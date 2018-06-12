@@ -1,0 +1,12 @@
+name: ShellyEssentials
+main: ShellyEssentials\Main
+author: Shelly7w7
+version: 0.1
+api: [3.0.0-ALPHA10, 3.0.0-ALPHA11, 3.0.0-ALPHA12]
+
+commands:
+ heal:
+  description: "Heal YourSelf!"
+
+ feed:
+  description: "Feed YourSelf!"
