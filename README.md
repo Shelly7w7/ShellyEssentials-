@@ -2,7 +2,7 @@
 Modern Day Essentials Plugins By Shelly7w7. 
 Still In Progress.
 
-##todo
+#todo
 
 - [x] Heal
 
@@ -26,6 +26,6 @@ Still In Progress.
 - [] Many More To Come! 
 
 
-##Server 
+#Server 
 
 Join My Server! sb.emperials.net 
