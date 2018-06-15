@@ -27,6 +27,7 @@ use ShellyEssentials\commands\WildCommand;
 use ShellyEssentials\commands\WorldTPCommand;
 use ShellyEssentials\commands\XYZCommand;
 use ShellyEssentials\tasks\BroadcastTask;
+use ShellyEssentials\tasks\ClearLaggTask;
 
 class Main extends PluginBase{
 
@@ -61,5 +62,6 @@ class Main extends PluginBase{
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);
+		$this->getServer()->getScheduler()->scheduleRepeatingTask(new ClearLaggTask($this), 120 * 20);
 	}
 }

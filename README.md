@@ -21,12 +21,14 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] /kickall
 - [x] /tpall
 - [x] /worldtp
+- [x] /ping
 - [x] Broadcast System
 - [x] Join Title and Message
 - [x] Custom MOTD
 - [x] Always Spawn
 - [x] NoVoid
 - [x] HungerDisabler
+- [x] ClearLagg
 
 # Server 
 Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: play.eruptuspe.ml
