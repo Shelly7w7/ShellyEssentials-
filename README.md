@@ -18,6 +18,9 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] /xyz
 - [x] /god
 - [x] /afk
+- [x] /kickall
+- [x] /tpall
+- [x] /worldtp
 - [x] Broadcast System
 - [x] Join Title and Message
 - [x] Custom MOTD

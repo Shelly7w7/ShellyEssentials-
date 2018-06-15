@@ -16,11 +16,14 @@ use ShellyEssentials\commands\GamemodeSpectatorCommand;
 use ShellyEssentials\commands\GamemodeSurvivalCommand;
 use ShellyEssentials\commands\GodCommand;
 use ShellyEssentials\commands\HealCommand;
+use ShellyEssentials\commands\KickAllCommand;
 use ShellyEssentials\commands\MuteCommand;
 use ShellyEssentials\commands\NickCommand;
 use ShellyEssentials\commands\SpawnCommand;
+use ShellyEssentials\commands\TpAllCommand;
 use ShellyEssentials\commands\VanishCommand;
 use ShellyEssentials\commands\WildCommand;
+use ShellyEssentials\commands\WorldTPCommand;
 use ShellyEssentials\commands\XYZCommand;
 use ShellyEssentials\tasks\BroadcastTask;
 
@@ -52,7 +55,10 @@ class Main extends PluginBase{
 			new SpawnCommand($this),
 			new XYZCommand($this),
 			new GodCommand($this),
-			new AfkCommand($this)
+			new AfkCommand($this),
+			new KickAllCommand($this),
+			new TpAllCommand($this),
+			new WorldTPCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);

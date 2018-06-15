@@ -36,3 +36,9 @@ permissions:
   default: op
  afk.command:
   default: true
+ kickall.command:
+  default: op
+ tpall.command:
+  default: op
+ worldtp.command:
+  default: op
