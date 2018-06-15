@@ -1,0 +1,33 @@
+---
+# Below is the config are the messages that will be broadcasted
+messages:
+ - "Broadcast Message #1"
+ - "Broadcast Message #2"
+
+# The below config is the prefix before the above messages
+prefix: "Broadcast Prefix > "
+
+# The below configs is when the messages above will be broadcasted in seconds
+broadcast-interval: 60
+
+# The below config is the server name that will show up in the minecraft server list (NOTE: Use & for color coding)
+motd: "Server MOTD"
+
+# The below config is the title that will show when the player joins the server
+join-title: "Title"
+
+# The below config is the subtitle that will show when the player joins the server
+join-subtitle: "Subtitle"
+
+# The below config is the message that will be sent when the player joins the server
+join-message: "Message"
+
+# The below config is to toggle on or off novoid support (OPTIONS: on and off)
+novoid: "on"
+
+# The below config is to toggle on or off hunger disabler support (OPTIONS: on and off)
+hunger-disabler: "off"
+
+# The below config is to toggle on or off clear lagg support (OPTIONS: on and off)
+clearlagg: "on"
+...
