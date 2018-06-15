@@ -16,6 +16,8 @@ use ShellyEssentials\commands\GamemodeSurvivalCommand;
 use ShellyEssentials\commands\HealCommand;
 use ShellyEssentials\commands\MuteCommand;
 use ShellyEssentials\commands\NickCommand;
+use ShellyEssentials\commands\SpawnCommand;
+use ShellyEssentials\commands\VanishCommand;
 use ShellyEssentials\commands\WildCommand;
 use ShellyEssentials\tasks\BroadcastTask;
 
@@ -42,7 +44,9 @@ class Main extends PluginBase{
 			new HealCommand($this),
 			new MuteCommand($this),
 			new WildCommand($this),
-			new NickCommand($this)
+			new NickCommand($this),
+			new VanishCommand($this),
+			new SpawnCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);
