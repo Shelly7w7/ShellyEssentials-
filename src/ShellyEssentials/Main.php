@@ -19,6 +19,7 @@ use ShellyEssentials\commands\HealCommand;
 use ShellyEssentials\commands\KickAllCommand;
 use ShellyEssentials\commands\MuteCommand;
 use ShellyEssentials\commands\NickCommand;
+use ShellyEssentials\commands\PingCommand;
 use ShellyEssentials\commands\SpawnCommand;
 use ShellyEssentials\commands\TpAllCommand;
 use ShellyEssentials\commands\VanishCommand;
@@ -55,7 +56,8 @@ class Main extends PluginBase{
 			new AfkCommand($this),
 			new KickAllCommand($this),
 			new TpAllCommand($this),
-			new WorldTPCommand($this)
+			new WorldTPCommand($this),
+			new PingCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);

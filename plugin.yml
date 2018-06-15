@@ -42,3 +42,5 @@ permissions:
   default: op
  worldtp.command:
   default: op
+ ping.command:
+  default: true
