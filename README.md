@@ -25,6 +25,8 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] Join Title and Message
 - [x] Custom MOTD
 - [x] Always Spawn
+- [x] NoVoid
+- [x] HungerDisabler
 
 # Server 
 Join My Server! sb.emperials.net

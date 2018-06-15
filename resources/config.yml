@@ -21,4 +21,10 @@ join-subtitle: "Subtitle"
 
 # The below config is the message that will be sent when the player joins the server
 join-message: "Message"
+
+# The below config is to toggle on or off novoid support (OPTIONS: on and off)
+novoid: "on"
+
+# The below config is to toggle on or off hunger disabler support (OPTIONS: on and off)
+hunger-disabler: "off"
 ...

@@ -7,6 +7,7 @@ namespace ShellyEssentials;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 use pocketmine\event\player\PlayerMoveEvent;
@@ -46,6 +47,13 @@ class EventListener implements Listener{
 			}elseif(in_array($entity->getName(), GodCommand::$god)){
 				$event->setCancelled(true);
 			}
+			if($entity->getPosition()->getY() < 0){
+				if(Main::getInstance()->getConfig()->get("novoid") === "on"){
+					$event->setCancelled(true);
+					$entity->teleport(Main::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+					$entity->sendMessage(Main::PREFIX . TextFormat::GREEN . "You were teleported out of the void");
+				}
+			}
 		}
 	}
 
@@ -57,5 +65,9 @@ class EventListener implements Listener{
 		$player = $event->getPlayer();
 		Main::getInstance()->getServer()->getScheduler()->scheduleDelayedTask(new JoinTitleTask(Main::getInstance(), $player), 30);
 		$player->sendMessage(strval(Main::getInstance()->getConfig()->get("join-message")));
+	}
+
+	public function onExhaust(PlayerExhaustEvent $event) : void{
+		if(Main::getInstance()->getConfig()->get("hunger-disabler") === "on") $event->setCancelled(true);
 	}
 }
