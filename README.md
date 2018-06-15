@@ -1,31 +1,25 @@
 # ShellyEssentials-
-Modern Day Essentials Plugins By Shelly7w7. 
-Still In Progress.
+Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev. 
 
-#todo
-
-- [x] Heal
-
-- [x] Feed
-
-
-- [] Fly
-
-- [] tell
-
-- [] TPA/Tpaccept 
-
-- [] GMT (gamemode spec) 
-
-- [] GMS
-
-- [] GMC
-
-- [] kill
-
-- [] Many More To Come! 
-
+# Features
+- [x] /clearinv
+- [x] /feed
+- [x] /fly
+- [x] /freeze
+- [x] /gmc
+- [x] /gmspc
+- [x] /gms
+- [x] /heal
+- [x] /mute
+- [x] /nick
+- [x] /spawn
+- [x] /vanish
+- [x] /wild
+- [x] Broadcast System
+- [x] Join Title and Message
+- [x] Custom MOTD
+- [x] Always Spawn
 
 #Server 
-
-Join My Server! sb.emperials.net 
+Join My Server! sb.emperials.net
+Join iiFlamiinBlaze Server! play.eruptuspe.ml
