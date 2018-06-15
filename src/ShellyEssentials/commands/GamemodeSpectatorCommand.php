@@ -7,6 +7,7 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
+use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class GamemodeSpectatorCommand extends BaseCommand{

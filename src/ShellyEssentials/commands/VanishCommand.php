@@ -8,6 +8,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\entity\Entity;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
+use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class VanishCommand extends BaseCommand{

@@ -6,6 +6,7 @@ namespace ShellyEssentials\tasks;
 
 use pocketmine\Player;
 use pocketmine\scheduler\PluginTask;
+use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class JoinTitleTask extends PluginTask{

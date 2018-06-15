@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ShellyEssentials\tasks;
 
 use pocketmine\scheduler\PluginTask;
+use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class BroadcastTask extends PluginTask{

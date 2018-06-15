@@ -9,6 +9,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\utils\InvalidCommandSyntaxException;
 use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\plugin\Plugin;
+use ShellyEssentials\API;
 use ShellyEssentials\Main;
 use pocketmine\utils\TextFormat;
 
