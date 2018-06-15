@@ -17,6 +17,7 @@ use ShellyEssentials\commands\HealCommand;
 use ShellyEssentials\commands\MuteCommand;
 use ShellyEssentials\commands\NickCommand;
 use ShellyEssentials\commands\WildCommand;
+use ShellyEssentials\tasks\BroadcastTask;
 
 class Main extends PluginBase{
 
@@ -27,6 +28,9 @@ class Main extends PluginBase{
 
 	public function onEnable() : void{
 		self::$instance = $this;
+		API::setMotd(str_replace("&", "§", strval($this->getConfig()->get("motd"))));
+		@mkdir($this->getDataFolder());
+		$this->saveDefaultConfig();
 		$this->getServer()->getCommandMap()->registerAll("ShellyEssentials", [
 			new ClearInventoryCommand($this),
 			new FeedCommand($this),
@@ -41,6 +45,7 @@ class Main extends PluginBase{
 			new NickCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
+		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);
 	}
 
 	public static function getInstance() : self{
