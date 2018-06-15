@@ -42,8 +42,8 @@ class VanishCommand extends BaseCommand{
 			}
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			if(!in_array($player->getName(), $this->vanish)){
 				$this->vanish[] = $player->getName();
 				$player->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);

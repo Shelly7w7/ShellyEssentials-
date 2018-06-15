@@ -28,7 +28,7 @@ class EventListener implements Listener{
 		if(in_array($player->getName(), AfkCommand::$afk)){
 			unset(AfkCommand::$afk[array_search($player->getName(), AfkCommand::$afk)]);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You are no longer in afk mode");
-			Main::getInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $player->getName() . " is no longer AFK");
+			API::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $player->getName() . " is no longer AFK");
 		}
 	}
 
@@ -48,9 +48,9 @@ class EventListener implements Listener{
 				$event->setCancelled(true);
 			}
 			if($entity->getPosition()->getY() < 0){
-				if(Main::getInstance()->getConfig()->get("novoid") === "on"){
+				if(API::getMainInstance()->getConfig()->get("novoid") === "on"){
 					$event->setCancelled(true);
-					$entity->teleport(Main::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+					$entity->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
 					$entity->sendMessage(Main::PREFIX . TextFormat::GREEN . "You were teleported out of the void");
 				}
 			}
@@ -58,16 +58,16 @@ class EventListener implements Listener{
 	}
 
 	public function onPlayerLogin(PlayerLoginEvent $event) : void{
-		$event->getPlayer()->teleport(Main::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+		$event->getPlayer()->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
 	}
 
 	public function onJoin(PlayerJoinEvent $event) : void{
 		$player = $event->getPlayer();
-		Main::getInstance()->getServer()->getScheduler()->scheduleDelayedTask(new JoinTitleTask(Main::getInstance(), $player), 30);
-		$player->sendMessage(strval(Main::getInstance()->getConfig()->get("join-message")));
+		API::getMainInstance()->getServer()->getScheduler()->scheduleDelayedTask(new JoinTitleTask(API::getMainInstance(), $player), 30);
+		$player->sendMessage(strval(API::getMainInstance()->getConfig()->get("join-message")));
 	}
 
 	public function onExhaust(PlayerExhaustEvent $event) : void{
-		if(Main::getInstance()->getConfig()->get("hunger-disabler") === "on") $event->setCancelled(true);
+		if(API::getMainInstance()->getConfig()->get("hunger-disabler") === "on") $event->setCancelled(true);
 	}
 }

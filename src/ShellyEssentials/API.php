@@ -6,7 +6,14 @@ namespace ShellyEssentials;
 
 class API{
 
+	/** @var Main $instance */
+	public static $instance;
+
+	public static function getMainInstance() : Main{
+		return self::$instance;
+	}
+
 	public static function setMotd(string $motd) : void{
-		Main::getInstance()->getServer()->getNetwork()->setName($motd);
+		API::getMainInstance()->getServer()->getNetwork()->setName($motd);
 	}
 }

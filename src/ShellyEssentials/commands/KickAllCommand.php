@@ -24,7 +24,7 @@ class KickAllCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		foreach(Main::getInstance()->getServer()->getOnlinePlayers() as $player) $player->kick(TextFormat::RED . "You have been kicked since /kickall was ran");
+		foreach(API::getMainInstance()->getServer()->getOnlinePlayers() as $player) $player->kick(TextFormat::RED . "You have been kicked since /kickall was ran");
 		return true;
 	}
 }

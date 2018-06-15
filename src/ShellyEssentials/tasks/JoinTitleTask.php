@@ -19,6 +19,6 @@ class JoinTitleTask extends PluginTask{
 	}
 
 	public function onRun(int $tick) : void{
-		$this->player->addTitle(strval(Main::getInstance()->getConfig()->get("join-title")), strval(Main::getInstance()->getConfig()->get("join-subtitle")));
+		$this->player->addTitle(strval(API::getMainInstance()->getConfig()->get("join-title")), strval(API::getMainInstance()->getConfig()->get("join-subtitle")));
 	}
 }

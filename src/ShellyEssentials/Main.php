@@ -31,11 +31,8 @@ class Main extends PluginBase{
 
 	public const PREFIX = TextFormat::DARK_PURPLE . TextFormat::BOLD . "ShellyEssentials > " . TextFormat::RESET;
 
-	/** @var self $instance */
-	private static $instance;
-
 	public function onEnable() : void{
-		self::$instance = $this;
+		API::$instance = $this;
 		API::setMotd(str_replace("&", "§", strval($this->getConfig()->get("motd"))));
 		@mkdir($this->getDataFolder());
 		$this->saveDefaultConfig();
@@ -62,9 +59,5 @@ class Main extends PluginBase{
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);
-	}
-
-	public static function getInstance() : self{
-		return self::$instance;
 	}
 }

@@ -33,8 +33,8 @@ class NickCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been nicked $args[0]");
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[1])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[1]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[1])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[1]);
 			$player->setDisplayName($args[0]);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been nicked $args[0]");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have nicked " . $player->getName());

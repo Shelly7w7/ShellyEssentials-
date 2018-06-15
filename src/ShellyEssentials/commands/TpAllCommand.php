@@ -24,7 +24,7 @@ class TpAllCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		foreach(Main::getInstance()->getServer()->getOnlinePlayers() as $player) $player->teleport($sender->asVector3());
+		foreach(API::getMainInstance()->getServer()->getOnlinePlayers() as $player) $player->teleport($sender->asVector3());
 		return true;
 	}
 }

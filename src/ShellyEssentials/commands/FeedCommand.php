@@ -30,8 +30,8 @@ class FeedCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been fed");
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->setFood(20);
 			$player->setSaturation(20);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been fed");

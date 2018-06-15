@@ -34,8 +34,8 @@ class FlyCommand extends BaseCommand{
 			}
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			if(!$player->isCreative()){
 				$player->sendMessage($player->getAllowFlight() === false ? Main::PREFIX . TextFormat::GREEN . "You have activated flight" : Main::PREFIX . TextFormat::RED . "You have disabled flight");
 				$sender->sendMessage($player->getAllowFlight() === false ? Main::PREFIX . TextFormat::GREEN . "You have enabled fly for " . $player->getName() : Main::PREFIX . TextFormat::RED . "You have disabled fly for " . $player->getName());

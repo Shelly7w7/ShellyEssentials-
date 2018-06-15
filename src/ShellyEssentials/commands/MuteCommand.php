@@ -31,8 +31,8 @@ class MuteCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GRAY . "Usage: /mute <player>");
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			if(!in_array($player->getName(), self::$initMute)){
 				self::$initMute[] = $player->getName();
 				$player->sendMessage(Main::PREFIX . TextFormat::RED . "You have now been muted");

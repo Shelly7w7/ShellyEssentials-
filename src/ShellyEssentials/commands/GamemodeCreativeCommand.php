@@ -29,8 +29,8 @@ class GamemodeCreativeCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have set your gamemode to creative");
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->setGamemode(Player::CREATIVE);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "Your gamemode has been set to creative");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have set " . $player->getName() . "'s gamemode to creative");

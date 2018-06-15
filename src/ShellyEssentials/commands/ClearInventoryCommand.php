@@ -29,8 +29,8 @@ class ClearInventoryCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have cleared your inventory");
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->getInventory()->clearAll();
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "Your inventory has been cleared");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have cleared " . $player->getName() . "'s inventory");

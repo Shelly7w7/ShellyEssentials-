@@ -29,8 +29,8 @@ class HealCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been healed");
 			return false;
 		}
-		if(Main::getInstance()->getServer()->getPlayer($args[0])){
-			$player = Main::getInstance()->getServer()->getPlayer($args[0]);
+		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->setHealth(20);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been healed");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have healed " . $player->getName());

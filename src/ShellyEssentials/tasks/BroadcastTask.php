@@ -10,7 +10,7 @@ use ShellyEssentials\Main;
 class BroadcastTask extends PluginTask{
 
 	public function onRun(int $tick) : void{
-		$messages = Main::getInstance()->getConfig()->get("messages");
+		$messages = API::getMainInstance()->getConfig()->get("messages");
 		$message = $messages[array_rand($messages)];
 		$message = str_replace(array(
 			"&",
@@ -22,12 +22,12 @@ class BroadcastTask extends PluginTask{
 		), array(
 			"§",
 			"\n",
-			Main::getInstance()->getServer()->getMaxPlayers(),
-			count(Main::getInstance()->getServer()->getOnlinePlayers()),
-			Main::getInstance()->getServer()->getTicksPerSecond(),
-			Main::getInstance()->getServer()->getMotd()
+			API::getMainInstance()->getServer()->getMaxPlayers(),
+			count(API::getMainInstance()->getServer()->getOnlinePlayers()),
+			API::getMainInstance()->getServer()->getTicksPerSecond(),
+			API::getMainInstance()->getServer()->getMotd()
 		), $message);
-		$prefix = str_replace("&", "§", Main::getInstance()->getConfig()->get("prefix"));
-		Main::getInstance()->getServer()->broadcastMessage($prefix . $message);
+		$prefix = str_replace("&", "§", API::getMainInstance()->getConfig()->get("prefix"));
+		API::getMainInstance()->getServer()->broadcastMessage($prefix . $message);
 	}
 }

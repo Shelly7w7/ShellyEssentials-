@@ -24,7 +24,7 @@ class SpawnCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		$sender->teleport(Main::getInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+		$sender->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
 		$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been teleported to spawn");
 		return true;
 	}
