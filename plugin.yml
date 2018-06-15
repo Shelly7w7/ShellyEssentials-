@@ -1,12 +1,28 @@
 name: ShellyEssentials
 main: ShellyEssentials\Main
 author: Shelly7w7
-version: 0.1
-api: [3.0.0-ALPHA10, 3.0.0-ALPHA11, 3.0.0-ALPHA12]
-
-commands:
- heal:
-  description: "Heal YourSelf!"
-
- feed:
-  description: "Feed YourSelf!"
+version: 1.0.0
+api: 3.0.0-ALPHA12
+permissions:
+ heal.command:
+  default: op
+ feed.command:
+  default: op
+ fly.command:
+  default: op
+ freeze.command:
+  default: op
+ mute.command:
+  default: op
+ gms.command:
+  default: op
+ gmc.command:
+  default: op
+ gmspc.command:
+  default: op
+ clearinv.command:
+  default: op
+ wild.command:
+  default: true
+ nick.command:
+  default: true
