@@ -29,5 +29,4 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] HungerDisabler
 
 # Server 
-Join My Server! sb.emperials.net
-Join iiFlamiinBlaze Server! play.eruptuspe.ml
+Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: play.eruptuspe.ml
