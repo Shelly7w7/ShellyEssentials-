@@ -1,4 +1,4 @@
-# ShellyEssentials-
+# ShellyEssentials
 Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev. 
 
 # Features
@@ -15,11 +15,14 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] /spawn
 - [x] /vanish
 - [x] /wild
+- [x] /xyz
+- [x] /god
+- [x] /afk
 - [x] Broadcast System
 - [x] Join Title and Message
 - [x] Custom MOTD
 - [x] Always Spawn
 
-#Server 
+# Server 
 Join My Server! sb.emperials.net
 Join iiFlamiinBlaze Server! play.eruptuspe.ml

@@ -30,3 +30,9 @@ permissions:
   default: op
  spawn.command:
   default: true
+ xyz.command:
+  default: true
+ god.command:
+  default: op
+ afk.command:
+  default: true

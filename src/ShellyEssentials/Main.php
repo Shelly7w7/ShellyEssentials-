@@ -6,6 +6,7 @@ namespace ShellyEssentials;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
+use ShellyEssentials\commands\AfkCommand;
 use ShellyEssentials\commands\ClearInventoryCommand;
 use ShellyEssentials\commands\FeedCommand;
 use ShellyEssentials\commands\FlyCommand;
@@ -13,12 +14,14 @@ use ShellyEssentials\commands\FreezeCommand;
 use ShellyEssentials\commands\GamemodeCreativeCommand;
 use ShellyEssentials\commands\GamemodeSpectatorCommand;
 use ShellyEssentials\commands\GamemodeSurvivalCommand;
+use ShellyEssentials\commands\GodCommand;
 use ShellyEssentials\commands\HealCommand;
 use ShellyEssentials\commands\MuteCommand;
 use ShellyEssentials\commands\NickCommand;
 use ShellyEssentials\commands\SpawnCommand;
 use ShellyEssentials\commands\VanishCommand;
 use ShellyEssentials\commands\WildCommand;
+use ShellyEssentials\commands\XYZCommand;
 use ShellyEssentials\tasks\BroadcastTask;
 
 class Main extends PluginBase{
@@ -46,7 +49,10 @@ class Main extends PluginBase{
 			new WildCommand($this),
 			new NickCommand($this),
 			new VanishCommand($this),
-			new SpawnCommand($this)
+			new SpawnCommand($this),
+			new XYZCommand($this),
+			new GodCommand($this),
+			new AfkCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);
