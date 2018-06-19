@@ -2,7 +2,7 @@ name: ShellyEssentials
 main: ShellyEssentials\Main
 author: "Shelly7w7 and BlazeTheDev"
 version: 1.0.2
-api: 3.0.0-ALPHA12
+api: [3.0.0, 3.0.0-ALPHA12] 
 permissions:
  heal.command:
   default: op
