@@ -7,12 +7,12 @@ namespace ShellyEssentials\tasks;
 use pocketmine\entity\Creature;
 use pocketmine\entity\Entity;
 use pocketmine\entity\Human;
-use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 use ShellyEssentials\API;
 use pocketmine\utils\TextFormat;
 use ShellyEssentials\Main;
 
-class ClearLaggTask extends PluginTask{
+class ClearLaggTask extends Task{
 
 	/** @var array $exemptedEntities */
 	private $exemptedEntities = [];
