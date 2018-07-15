@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace ShellyEssentials\tasks;
 
-use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
-class BroadcastTask extends PluginTask{
+class BroadcastTask extends Task{
 
 	public function onRun(int $tick) : void{
 		$messages = API::getMainInstance()->getConfig()->get("messages");
