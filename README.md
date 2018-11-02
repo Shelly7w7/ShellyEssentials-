@@ -1,5 +1,6 @@
 # ShellyEssentials
 Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev. 
+[![HitCount](http://hits.dwyl.io/Shelly7w7/ShellyEssentials-.svg)](http://hits.dwyl.io/Shelly7w7/ShellyEssentials-)
 
 # Features
 - [x] /clearinv
