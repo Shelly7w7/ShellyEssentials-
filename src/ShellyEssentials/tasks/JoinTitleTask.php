@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace ShellyEssentials\tasks;
 
 use pocketmine\Player;
-use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
-class JoinTitleTask extends PluginTask{
+class JoinTitleTask extends Task{
 
 	/** @var Player $player */
 	private $player;
 
 	public function __construct(Main $main, Player $player){
 		$this->player = $player;
-		parent::__construct($main);
+		$this->main = $main;
+	//      parent::__construct($main);
 	}
 
 	public function onRun(int $tick) : void{
