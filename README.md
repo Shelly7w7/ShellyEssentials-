@@ -29,6 +29,8 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] NoVoid
 - [x] HungerDisabler
 - [x] ClearLagg
+- [x] TPA/TPAccept/TPADeny
+- [x] Homes
 
 # Server 
 Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: play.eruptuspe.ml
