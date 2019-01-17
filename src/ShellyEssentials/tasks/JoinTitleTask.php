@@ -17,10 +17,15 @@ class JoinTitleTask extends Task{
 	public function __construct(Main $main, Player $player){
 		$this->player = $player;
 		$this->main = $main;
-	//      parent::__construct($main);
 	}
 
 	public function onRun(int $tick) : void{
-		$this->player->addTitle(strval(API::getMainInstance()->getConfig()->get("join-title")), strval(API::getMainInstance()->getConfig()->get("join-subtitle")));
+		
+		$title = API::getMainInstance()->getConfig()->get("join-title");
+		$subtitle = API::getMainInstance()->getConfig()->get("join-title");
+		$title = str_replace("{playername}", $this->player->getName(), $title);
+		$subtitle = str_replace("{playername}", $this->player->getName(), $subtitle);
+
+		$this->player->addTitle($title, $subtitle);
 	}
 }
