@@ -31,7 +31,7 @@ use ShellyEssentials\tasks\ClearLaggTask;
 
 class Main extends PluginBase{
 
-	public const PREFIX = TextFormat::DARK_PURPLE . TextFormat::BOLD . "ShellyEssentials > " . TextFormat::RESET;
+	public const PREFIX = TextFormat::RED . TextFormat::BOLD . "ObliviousCraft > " . TextFormat::RESET;
 
 	public function onEnable() : void{
 		API::$instance = $this;
