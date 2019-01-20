@@ -25,7 +25,7 @@ permissions:
  wild.command:
   default: true
  nick.command:
-  default: true
+  default: op
  vanish.command:
   default: op
  spawn.command:
