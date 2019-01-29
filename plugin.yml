@@ -1,6 +1,6 @@
-name: ShellyEssentials
+name: PixelCradtMC
 main: ShellyEssentials\Main
-author: "Shelly7w7 and BlazeTheDev"
+author: "piyushbest"
 version: 1.0.2
 api: [3.0.0] 
 permissions:
