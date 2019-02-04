@@ -63,7 +63,7 @@ class EventListener implements Listener{
 
 	public function onJoin(PlayerJoinEvent $event) : void{
 		$player = $event->getPlayer();
-		API::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask(API::getMainInstance(), $player), 30);
+		API::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask($player), 30);
 		$player->sendMessage(strval(API::getMainInstance()->getConfig()->get("join-message")));
 	}
 
