@@ -14,6 +14,6 @@ class API{
 	}
 
 	public static function setMotd(string $motd) : void{
-		API::getMainInstance()->getServer()->getNetwork()->setName($motd);
+		API::getMainInstance()->getServer()->getNetwork()->setName(strval($motd));
 	}
 }

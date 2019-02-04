@@ -2,45 +2,45 @@ name: ShellyEssentials
 main: ShellyEssentials\Main
 author: "Shelly7w7 and BlazeTheDev"
 version: 1.0.2
-api: [3.0.0] 
+api: [3.0.0]
 permissions:
- heal.command:
-  default: op
- feed.command:
-  default: op
- fly.command:
-  default: op
- freeze.command:
-  default: op
- mute.command:
-  default: op
- gms.command:
-  default: op
- gmc.command:
-  default: op
- gmspc.command:
-  default: op
- clearinv.command:
-  default: op
- wild.command:
-  default: true
- nick.command:
-  default: op
- vanish.command:
-  default: op
- spawn.command:
-  default: true
- xyz.command:
-  default: true
- god.command:
-  default: op
- afk.command:
-  default: true
- kickall.command:
-  default: op
- tpall.command:
-  default: op
- worldtp.command:
-  default: op
- ping.command:
-  default: true
+  heal.command:
+    default: op
+  feed.command:
+    default: op
+  fly.command:
+    default: op
+  freeze.command:
+    default: op
+  mute.command:
+    default: op
+  gms.command:
+    default: op
+  gmc.command:
+    default: op
+  gmspc.command:
+    default: op
+  clearinv.command:
+    default: op
+  wild.command:
+    default: true
+  nick.command:
+    default: op
+  vanish.command:
+    default: op
+  spawn.command:
+    default: true
+  xyz.command:
+    default: true
+  god.command:
+    default: op
+  afk.command:
+    default: true
+  kickall.command:
+    default: op
+  tpall.command:
+    default: op
+  worldtp.command:
+    default: op
+  ping.command:
+    default: true

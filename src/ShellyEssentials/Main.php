@@ -61,7 +61,7 @@ class Main extends PluginBase{
 			new PingCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
-		$this->getScheduler()->scheduleRepeatingTask(new BroadcastTask($this), intval($this->getConfig()->get("broadcast-interval")) * 20);
-		$this->getScheduler()->scheduleRepeatingTask(new ClearLaggTask($this), 120 * 20);
+		$this->getScheduler()->scheduleRepeatingTask(new BroadcastTask(), intval($this->getConfig()->get("broadcast-interval")) * 20);
+		$this->getScheduler()->scheduleRepeatingTask(new ClearLaggTask(), 120 * 20);
 	}
 }
