@@ -30,6 +30,9 @@ novoid: "on"
 # The below config is to toggle on or off hunger disabler support (OPTIONS: on and off)
 hunger-disabler: "off"
 
+# The below config is to toggle on or off forced hub spawning support (OPTIONS: on and off)
+spawn-hub: "on"
+
 # The below config is to toggle on or off clear lagg support (OPTIONS: on and off)
 clearlagg: "on"
 ...
