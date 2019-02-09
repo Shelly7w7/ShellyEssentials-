@@ -58,7 +58,9 @@ class EventListener implements Listener{
 	}
 
 	public function onPlayerLogin(PlayerLoginEvent $event) : void{
-		$event->getPlayer()->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+        $player = $event->getPlayer();
+        API::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask($player), 30);
+        $player->sendMessage(strval(API::getMainInstance()->getConfig()->get("join-message")));
 	}
 
 	public function onJoin(PlayerJoinEvent $event) : void{
