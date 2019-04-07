@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class NickCommand extends BaseCommand{
@@ -34,8 +33,8 @@ class NickCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been nicked $args[0]");
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[1])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[1]);
+		if(Main::getMainInstance()->getServer()->getPlayer($args[1])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[1]);
 			$player->setDisplayName($args[0]);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been nicked $args[0]");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have nicked " . $player->getName());

@@ -9,7 +9,6 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\utils\InvalidCommandSyntaxException;
 use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\plugin\Plugin;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 use pocketmine\utils\TextFormat;
 
@@ -22,13 +21,13 @@ abstract class BaseCommand extends Command implements PluginIdentifiableCommand{
 	}
 
 	public function getPlugin() : Plugin{
-		return API::getMainInstance();
+		return Main::getMainInstance();
 	}
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args) : bool{
-		if(!API::getMainInstance()->isEnabled()) return false;
+		if(!Main::getMainInstance()->isEnabled()) return false;
 		if(!$this->testPermission($sender)) return false;
-		$success = API::getMainInstance()->onCommand($sender, $this, $commandLabel, $args);
+		$success = Main::getMainInstance()->onCommand($sender, $this, $commandLabel, $args);
 		if(!$success and $this->usageMessage !== "") throw new InvalidCommandSyntaxException();
 		return $success;
 	}

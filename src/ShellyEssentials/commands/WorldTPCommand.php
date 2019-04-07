@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class WorldTPCommand extends BaseCommand{
@@ -29,8 +28,8 @@ class WorldTPCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GRAY . "Usage: /worldtp <world>");
 			return false;
 		}
-		if(file_exists(API::getMainInstance()->getServer()->getDataPath() . "worlds/" . $args[0])){
-			$sender->teleport(API::getMainInstance()->getServer()->getLevelByName($args[0])->getSafeSpawn());
+		if(file_exists(Main::getMainInstance()->getServer()->getDataPath() . "worlds/" . $args[0])){
+			$sender->teleport(Main::getMainInstance()->getServer()->getLevelByName($args[0])->getSafeSpawn());
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been teleported to the world named $args[0]");
 		}else{
 			$sender->sendMessage(Main::PREFIX . TextFormat::RED . "World does not exist");

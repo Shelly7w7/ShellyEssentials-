@@ -34,4 +34,4 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [ ] Homes
 
 # Server 
-Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: eruptuspe.ml
+Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: magmaprison.ml

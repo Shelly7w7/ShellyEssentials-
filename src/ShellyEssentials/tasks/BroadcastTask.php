@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace ShellyEssentials\tasks;
 
 use pocketmine\scheduler\Task;
-use ShellyEssentials\API;
+use ShellyEssentials\Main;
 
 class BroadcastTask extends Task{
 
 	public function onRun(int $tick) : void{
-		$messages = API::getMainInstance()->getConfig()->get("messages");
+		$messages = Main::getMainInstance()->getConfig()->get("messages");
 		$message = $messages[array_rand($messages)];
 		$message = str_replace([
 			"&",
@@ -22,12 +22,12 @@ class BroadcastTask extends Task{
 		], [
 			"§",
 			"\n",
-			API::getMainInstance()->getServer()->getMaxPlayers(),
-			count(API::getMainInstance()->getServer()->getOnlinePlayers()),
-			API::getMainInstance()->getServer()->getTicksPerSecond(),
-			API::getMainInstance()->getServer()->getMotd()
+			Main::getMainInstance()->getServer()->getMaxPlayers(),
+			count(Main::getMainInstance()->getServer()->getOnlinePlayers()),
+			Main::getMainInstance()->getServer()->getTicksPerSecond(),
+			Main::getMainInstance()->getServer()->getMotd()
 		], $message);
-		$prefix = str_replace("&", "§", API::getMainInstance()->getConfig()->get("prefix"));
-		API::getMainInstance()->getServer()->broadcastMessage($prefix . $message);
+		$prefix = str_replace("&", "§", Main::getMainInstance()->getConfig()->get("prefix"));
+		Main::getMainInstance()->getServer()->broadcastMessage($prefix . $message);
 	}
 }

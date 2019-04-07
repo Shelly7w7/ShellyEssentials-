@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class ClearInventoryCommand extends BaseCommand{
@@ -30,8 +29,8 @@ class ClearInventoryCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have cleared your inventory");
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
+		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->getInventory()->clearAll();
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "Your inventory has been cleared");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have cleared " . $player->getName() . "'s inventory");

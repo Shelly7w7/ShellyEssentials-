@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class FreezeCommand extends BaseCommand{
@@ -32,8 +31,8 @@ class FreezeCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GRAY . "Usage: /freeze <player>");
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
+		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
 			if(!in_array($player->getName(), self::$initFreeze)){
 				self::$initFreeze[] = $player->getName();
 				$player->sendMessage(Main::PREFIX . TextFormat::RED . "You have now been frozen");

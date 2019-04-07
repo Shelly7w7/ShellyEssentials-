@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class SpawnCommand extends BaseCommand{
@@ -25,7 +24,7 @@ class SpawnCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		$sender->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+		$sender->teleport(Main::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
 		$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been teleported to spawn");
 		return true;
 	}

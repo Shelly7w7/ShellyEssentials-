@@ -28,7 +28,7 @@ class EventListener implements Listener{
 		if(in_array($player->getName(), AfkCommand::$afk)){
 			unset(AfkCommand::$afk[array_search($player->getName(), AfkCommand::$afk)]);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You are no longer in afk mode");
-			API::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $player->getName() . " is no longer AFK");
+			Main::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $player->getName() . " is no longer AFK");
 		}
 	}
 
@@ -48,9 +48,9 @@ class EventListener implements Listener{
 				$event->setCancelled(true);
 			}
 			if($entity->getPosition()->getY() < 0){
-				if(API::getMainInstance()->getConfig()->get("novoid") === "on"){
+				if(Main::getMainInstance()->getConfig()->get("novoid") === "on"){
 					$event->setCancelled(true);
-					$entity->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+					$entity->teleport(Main::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
 					$entity->sendMessage(Main::PREFIX . TextFormat::GREEN . "You were teleported out of the void");
 				}
 			}
@@ -58,16 +58,16 @@ class EventListener implements Listener{
 	}
 
 	public function onPlayerLogin(PlayerLoginEvent $event) : void{
-		$event->getPlayer()->teleport(API::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+		$event->getPlayer()->teleport(Main::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
 	}
 
 	public function onJoin(PlayerJoinEvent $event) : void{
 		$player = $event->getPlayer();
-		API::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask($player), 30);
-		$player->sendMessage(strval(API::getMainInstance()->getConfig()->get("join-message")));
+		Main::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask($player), 30);
+		$player->sendMessage(strval(Main::getMainInstance()->getConfig()->get("join-message")));
 	}
 
 	public function onExhaust(PlayerExhaustEvent $event) : void{
-		if(API::getMainInstance()->getConfig()->get("hunger-disabler") === "on") $event->setCancelled(true);
+		if(Main::getMainInstance()->getConfig()->get("hunger-disabler") === "on") $event->setCancelled(true);
 	}
 }
