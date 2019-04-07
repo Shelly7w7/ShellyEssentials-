@@ -32,4 +32,7 @@ hunger-disabler: "off"
 
 # The below config is to toggle on or off clear lagg support (OPTIONS: on and off)
 clearlagg: "on"
+
+# The below config is the toggle to force teleport someone to spawn when they join the server
+spawn-hub: "on"
 ...

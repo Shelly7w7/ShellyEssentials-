@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class AfkCommand extends BaseCommand{
@@ -28,14 +27,14 @@ class AfkCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		if(!in_array($sender->getName(), self::$afk)){
-			self::$afk[] = $sender->getName();
+		if(!isset(self::$afk[$sender->getName()])){
+			self::$afk[$sender->getName()] = true;
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have turned on afk mode");
-			API::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $sender->getName() . " is now AFK");
-		}elseif(in_array($sender->getName(), self::$afk)){
-			unset(self::$afk[array_search($sender->getName(), self::$afk)]);
+			Main::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $sender->getName() . " is now AFK");
+		}elseif(isset(self::$afk[$sender->getName()])){
+			unset(self::$afk[$sender->getName()]);
 			$sender->sendMessage(Main::PREFIX . TextFormat::RED . "You have turned off afk mode");
-			API::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $sender->getName() . " is no longer AFK");
+			Main::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $sender->getName() . " is no longer AFK");
 		}
 		return true;
 	}

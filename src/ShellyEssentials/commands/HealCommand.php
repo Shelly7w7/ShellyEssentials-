@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class HealCommand extends BaseCommand{
@@ -30,8 +29,8 @@ class HealCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been healed");
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
+		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->setHealth(20);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been healed");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have healed " . $player->getName());

@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class FlyCommand extends BaseCommand{
@@ -35,8 +34,8 @@ class FlyCommand extends BaseCommand{
 			}
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
+		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
 			if(!$player->isCreative()){
 				$player->sendMessage($player->getAllowFlight() === false ? Main::PREFIX . TextFormat::GREEN . "You have activated flight" : Main::PREFIX . TextFormat::RED . "You have disabled flight");
 				$sender->sendMessage($player->getAllowFlight() === false ? Main::PREFIX . TextFormat::GREEN . "You have enabled fly for " . $player->getName() : Main::PREFIX . TextFormat::RED . "You have disabled fly for " . $player->getName());

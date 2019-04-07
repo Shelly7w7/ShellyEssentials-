@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class GamemodeCreativeCommand extends BaseCommand{
@@ -30,8 +29,8 @@ class GamemodeCreativeCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have set your gamemode to creative");
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
+		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
 			$player->setGamemode(Player::CREATIVE);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "Your gamemode has been set to creative");
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have set " . $player->getName() . "'s gamemode to creative");

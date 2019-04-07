@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class TpAllCommand extends BaseCommand{
@@ -25,7 +24,7 @@ class TpAllCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		foreach(API::getMainInstance()->getServer()->getOnlinePlayers() as $player) $player->teleport($sender->asVector3());
+		foreach(Main::getMainInstance()->getServer()->getOnlinePlayers() as $player) $player->teleport($sender->asVector3());
 		return true;
 	}
 }

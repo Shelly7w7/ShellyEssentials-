@@ -1,7 +1,7 @@
 name: ShellyEssentials
 main: ShellyEssentials\Main
 author: "Shelly7w7 and BlazeTheDev"
-version: 1.0.2
+version: 1.1.0
 api: [3.0.0]
 permissions:
   heal.command:
@@ -19,6 +19,8 @@ permissions:
   gmc.command:
     default: op
   gmspc.command:
+    default: op
+  gma.command:
     default: op
   clearinv.command:
     default: op

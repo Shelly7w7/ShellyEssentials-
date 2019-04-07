@@ -32,7 +32,7 @@ class WildCommand extends BaseCommand{
 		$z = rand(1, 1500);
 		$sender->teleport(new Position($x, 128, $z, $sender->getLevel()));
 		$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been teleported to coords " . TextFormat::AQUA . "X: $x | Y: 128 | Z: $z" . TextFormat::GREEN . " in the wild!");
-		self::$initWild[] = $sender->getName();
+		self::$initWild[$sender->getName()] = true;
 		return true;
 	}
 }

@@ -11,6 +11,7 @@ use ShellyEssentials\commands\ClearInventoryCommand;
 use ShellyEssentials\commands\FeedCommand;
 use ShellyEssentials\commands\FlyCommand;
 use ShellyEssentials\commands\FreezeCommand;
+use ShellyEssentials\commands\GamemodeAdventureCommand;
 use ShellyEssentials\commands\GamemodeCreativeCommand;
 use ShellyEssentials\commands\GamemodeSpectatorCommand;
 use ShellyEssentials\commands\GamemodeSurvivalCommand;
@@ -33,9 +34,12 @@ class Main extends PluginBase{
 
 	public const PREFIX = TextFormat::DARK_PURPLE . TextFormat::BOLD . "ShellyEssentials > " . TextFormat::RESET;
 
+	/** @var Main $instance */
+	protected static $instance;
+
 	public function onEnable() : void{
-		API::$instance = $this;
-		API::setMotd(str_replace("&", "§", strval($this->getConfig()->get("motd"))));
+		self::$instance = $this;
+		$this->setMotd(str_replace("&", "§", strval($this->getConfig()->get("motd"))));
 		@mkdir($this->getDataFolder());
 		$this->saveDefaultConfig();
 		$this->getServer()->getCommandMap()->registerAll("ShellyEssentials", [
@@ -58,10 +62,19 @@ class Main extends PluginBase{
 			new KickAllCommand($this),
 			new TpAllCommand($this),
 			new WorldTPCommand($this),
-			new PingCommand($this)
+			new PingCommand($this),
+			new GamemodeAdventureCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getScheduler()->scheduleRepeatingTask(new BroadcastTask(), intval($this->getConfig()->get("broadcast-interval")) * 20);
 		$this->getScheduler()->scheduleRepeatingTask(new ClearLaggTask(), 120 * 20);
+	}
+
+	protected function setMotd(string $motd) : void{
+		$this->getServer()->getNetwork()->setName(strval($motd));
+	}
+
+	public static function getMainInstance() : self{
+		return self::$instance;
 	}
 }

@@ -7,7 +7,6 @@ namespace ShellyEssentials\commands;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
-use ShellyEssentials\API;
 use ShellyEssentials\Main;
 
 class FreezeCommand extends BaseCommand{
@@ -32,14 +31,14 @@ class FreezeCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::GRAY . "Usage: /freeze <player>");
 			return false;
 		}
-		if(API::getMainInstance()->getServer()->getPlayer($args[0])){
-			$player = API::getMainInstance()->getServer()->getPlayer($args[0]);
-			if(!in_array($player->getName(), self::$initFreeze)){
-				self::$initFreeze[] = $player->getName();
+		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
+			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
+			if(!isset(self::$initFreeze[$player->getName()])){
+				self::$initFreeze[$player->getName()] = true;
 				$player->sendMessage(Main::PREFIX . TextFormat::RED . "You have now been frozen");
 				$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have froze " . $player->getName());
-			}elseif(in_array($player->getName(), self::$initFreeze)){
-				unset(self::$initFreeze[array_search($player->getName(), self::$initFreeze)]);
+			}elseif(isset(self::$initFreeze[$player->getName()])){
+				unset(self::$initFreeze[$player->getName()]);
 				$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have now been unfrozen");
 				$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have unfroze " . $player->getName());
 			}

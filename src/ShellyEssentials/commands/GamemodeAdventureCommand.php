@@ -9,10 +9,10 @@ use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use ShellyEssentials\Main;
 
-class FeedCommand extends BaseCommand{
+class GamemodeAdventureCommand extends BaseCommand{
 
 	public function __construct(Main $main){
-		parent::__construct($main, "feed", "Feed yourself", "/feed <player>", ["feed"]);
+		parent::__construct($main, "gma", "Gamemode adventure command", "/gma <player>", ["gma"]);
 	}
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args) : bool{
@@ -20,22 +20,20 @@ class FeedCommand extends BaseCommand{
 			$sender->sendMessage(Main::PREFIX . TextFormat::RED . "Use this command in-game");
 			return false;
 		}
-		if(!$sender->hasPermission("feed.command")){
+		if(!$sender->hasPermission("gma.command")){
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
 		if(empty($args[0])){
-			$sender->setFood(20);
-			$sender->setSaturation(20);
-			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been fed");
+			$sender->setGamemode(Player::ADVENTURE);
+			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have set your gamemode to adventure");
 			return false;
 		}
 		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
 			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
-			$player->setFood(20);
-			$player->setSaturation(20);
-			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been fed");
-			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have fed " . $player->getName());
+			$player->setGamemode(Player::ADVENTURE);
+			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "Your gamemode has been set to adventure");
+			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have set " . $player->getName() . "'s gamemode to adventure");
 		}
 		return true;
 	}

@@ -9,6 +9,7 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] /freeze
 - [x] /gmc
 - [x] /gmspc
+- [x] /gma
 - [x] /gms
 - [x] /heal
 - [x] /mute
@@ -34,4 +35,4 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [ ] Homes
 
 # Server 
-Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: eruptuspe.ml
+Join My Server: sb.emperials.net | Join iiFlamiinBlaze Server: magmaprison.ml
