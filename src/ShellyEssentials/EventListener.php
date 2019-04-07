@@ -58,13 +58,14 @@ class EventListener implements Listener{
 	}
 
 	public function onPlayerLogin(PlayerLoginEvent $event) : void{
-		$event->getPlayer()->teleport(Main::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+		if(Main::getMainInstance()->getConfig()->get("spawn-hub") === "on"){
+			$event->getPlayer()->teleport(Main::getMainInstance()->getServer()->getDefaultLevel()->getSafeSpawn());
+		}
 	}
 
 	public function onJoin(PlayerJoinEvent $event) : void{
-		$player = $event->getPlayer();
-		Main::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask($player), 30);
-		$player->sendMessage(strval(Main::getMainInstance()->getConfig()->get("join-message")));
+		Main::getMainInstance()->getScheduler()->scheduleDelayedTask(new JoinTitleTask($event->getPlayer()), 30);
+		$event->getPlayer()->sendMessage(strval(Main::getMainInstance()->getConfig()->get("join-message")));
 	}
 
 	public function onExhaust(PlayerExhaustEvent $event) : void{
