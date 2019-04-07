@@ -9,6 +9,7 @@ Modern Day Essentials Plugins By Shelly7w7 and BlazeTheDev.
 - [x] /freeze
 - [x] /gmc
 - [x] /gmspc
+- [x] /gma
 - [x] /gms
 - [x] /heal
 - [x] /mute

@@ -11,6 +11,7 @@ use ShellyEssentials\commands\ClearInventoryCommand;
 use ShellyEssentials\commands\FeedCommand;
 use ShellyEssentials\commands\FlyCommand;
 use ShellyEssentials\commands\FreezeCommand;
+use ShellyEssentials\commands\GamemodeAdventureCommand;
 use ShellyEssentials\commands\GamemodeCreativeCommand;
 use ShellyEssentials\commands\GamemodeSpectatorCommand;
 use ShellyEssentials\commands\GamemodeSurvivalCommand;
@@ -61,7 +62,8 @@ class Main extends PluginBase{
 			new KickAllCommand($this),
 			new TpAllCommand($this),
 			new WorldTPCommand($this),
-			new PingCommand($this)
+			new PingCommand($this),
+			new GamemodeAdventureCommand($this)
 		]);
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getScheduler()->scheduleRepeatingTask(new BroadcastTask(), intval($this->getConfig()->get("broadcast-interval")) * 20);
