@@ -24,27 +24,27 @@ class EventListener implements Listener{
 
 	public function onMove(PlayerMoveEvent $event) : void{
 		$player = $event->getPlayer();
-		if(in_array($player->getName(), FreezeCommand::$initFreeze)) $event->setCancelled(true);
-		if(in_array($player->getName(), AfkCommand::$afk)){
-			unset(AfkCommand::$afk[array_search($player->getName(), AfkCommand::$afk)]);
+		if(isset(FreezeCommand::$initFreeze[$player->getName()])) $event->setCancelled(true);
+		if(isset(AfkCommand::$afk[$player->getName()])){
+			unset(AfkCommand::$afk[$player->getName()]);
 			$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You are no longer in afk mode");
 			Main::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $player->getName() . " is no longer AFK");
 		}
 	}
 
 	public function onChat(PlayerChatEvent $event) : void{
-		if(in_array($event->getPlayer()->getName(), MuteCommand::$initMute)) $event->setCancelled(true);
+		if(isset(MuteCommand::$initMute[$event->getPlayer()->getName()])) $event->setCancelled(true);
 	}
 
 	public function onEntityDamage(EntityDamageEvent $event) : void{
 		$entity = $event->getEntity();
 		if($entity instanceof Player){
-			if(in_array($entity->getName(), WildCommand::$initWild)){
+			if(isset(WildCommand::$initWild[$entity->getName()])){
 				if($event->getCause() === EntityDamageEvent::CAUSE_FALL){
 					$event->setCancelled(true);
-					unset(WildCommand::$initWild[array_search($entity->getName(), WildCommand::$initWild)]);
+					unset(WildCommand::$initWild[$entity->getName()]);
 				}
-			}elseif(in_array($entity->getName(), GodCommand::$god)){
+			}elseif(isset(GodCommand::$god[$entity->getName()])){
 				$event->setCancelled(true);
 			}
 			if($entity->getPosition()->getY() < 0){

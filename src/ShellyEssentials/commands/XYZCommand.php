@@ -28,14 +28,14 @@ class XYZCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		if(!in_array($sender->getName(), $this->xyz)){
-			$this->xyz[] = $sender->getName();
+		if(!isset($this->xyz[$sender->getName()])){
+			$this->xyz[$sender->getName()] = true;
 			$pk = new GameRulesChangedPacket();
 			$pk->gameRules = ["showcoordinates" => [1, true]];
 			$sender->dataPacket($pk);
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have turned on your coords");
-		}elseif(in_array($sender->getName(), $this->xyz)){
-			unset($this->xyz[array_search($sender->getName(), $this->xyz)]);
+		}elseif(isset($this->xyz[$sender->getName()])){
+			unset($this->xyz[$sender->getName()]);
 			$pk = new GameRulesChangedPacket();
 			$pk->gameRules = ["showcoordinates" => [1, false]];
 			$sender->dataPacket($pk);

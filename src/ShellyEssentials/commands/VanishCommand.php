@@ -29,13 +29,13 @@ class VanishCommand extends BaseCommand{
 			return false;
 		}
 		if(empty($args[0])){
-			if(!in_array($sender->getName(), $this->vanish)){
-				$this->vanish[] = $sender->getName();
+			if(!isset($this->vanish[$sender->getName()])){
+				$this->vanish[$sender->getName()] = true;
 				$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);
 				$sender->setNameTagVisible(false);
 				$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been vanished");
-			}elseif(in_array($sender->getName(), $this->vanish)){
-				unset($this->vanish[array_search($sender->getName(), $this->vanish)]);
+			}elseif(isset($this->vanish[$sender->getName()])){
+				unset($this->vanish[$sender->getName()]);
 				$sender->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, false);
 				$sender->setNameTagVisible(true);
 				$sender->sendMessage(Main::PREFIX . TextFormat::RED . "You have been unvanished");
@@ -44,14 +44,14 @@ class VanishCommand extends BaseCommand{
 		}
 		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
 			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
-			if(!in_array($player->getName(), $this->vanish)){
-				$this->vanish[] = $player->getName();
+			if(!isset($this->vanish[$player->getName()])){
+				$this->vanish[$player->getName()] = true;
 				$player->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, true);
 				$player->setNameTagVisible(false);
 				$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have been vanished");
 				$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have vanished " . TextFormat::AQUA . $player->getName());
-			}elseif(in_array($player->getName(), $this->vanish)){
-				unset($this->vanish[array_search($player->getName(), $this->vanish)]);
+			}elseif(isset($this->vanish[$player->getName()])){
+				unset($this->vanish[$player->getName()]);
 				$player->setDataFlag(Entity::DATA_FLAGS, Entity::DATA_FLAG_INVISIBLE, false);
 				$player->setNameTagVisible(true);
 				$player->sendMessage(Main::PREFIX . TextFormat::RED . "You have been unvanished");

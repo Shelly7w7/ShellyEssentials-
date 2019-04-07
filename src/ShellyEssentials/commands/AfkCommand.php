@@ -27,12 +27,12 @@ class AfkCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		if(!in_array($sender->getName(), self::$afk)){
-			self::$afk[] = $sender->getName();
+		if(!isset(self::$afk[$sender->getName()])){
+			self::$afk[$sender->getName()] = true;
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have turned on afk mode");
 			Main::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $sender->getName() . " is now AFK");
-		}elseif(in_array($sender->getName(), self::$afk)){
-			unset(self::$afk[array_search($sender->getName(), self::$afk)]);
+		}elseif(isset(self::$afk[$sender->getName()])){
+			unset(self::$afk[$sender->getName()]);
 			$sender->sendMessage(Main::PREFIX . TextFormat::RED . "You have turned off afk mode");
 			Main::getMainInstance()->getServer()->broadcastMessage(TextFormat::YELLOW . $sender->getName() . " is no longer AFK");
 		}

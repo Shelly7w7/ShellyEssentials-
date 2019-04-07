@@ -33,12 +33,12 @@ class MuteCommand extends BaseCommand{
 		}
 		if(Main::getMainInstance()->getServer()->getPlayer($args[0])){
 			$player = Main::getMainInstance()->getServer()->getPlayer($args[0]);
-			if(!in_array($player->getName(), self::$initMute)){
-				self::$initMute[] = $player->getName();
+			if(!isset(self::$initMute[$player->getName()])){
+				self::$initMute[$player->getName()] = true;
 				$player->sendMessage(Main::PREFIX . TextFormat::RED . "You have now been muted");
 				$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have muted " . $player->getName());
-			}elseif(in_array($player->getName(), self::$initMute)){
-				unset(self::$initMute[array_search($player->getName(), self::$initMute)]);
+			}elseif(isset(self::$initMute[$player->getName()])){
+				unset(self::$initMute[$player->getName()]);
 				$player->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have now been unmuted");
 				$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have unmuted " . $player->getName());
 			}

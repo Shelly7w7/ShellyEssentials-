@@ -27,11 +27,11 @@ class GodCommand extends BaseCommand{
 			$sender->sendMessage(self::NO_PERMISSION);
 			return false;
 		}
-		if(!in_array($sender->getName(), self::$god)){
-			self::$god[] = $sender->getName();
+		if(!isset(self::$god[$sender->getName()])){
+			self::$god[$sender->getName()] = true;
 			$sender->sendMessage(Main::PREFIX . TextFormat::GREEN . "You have turned on god mode");
-		}elseif(in_array($sender->getName(), self::$god)){
-			unset(self::$god[array_search($sender->getName(), self::$god)]);
+		}elseif(isset(self::$god[$sender->getName()])){
+			unset(self::$god[$sender->getName()]);
 			$sender->sendMessage(Main::PREFIX . TextFormat::RED . "You have turned off god mode");
 		}
 		return true;
