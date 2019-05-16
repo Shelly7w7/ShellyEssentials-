@@ -18,6 +18,6 @@ class JoinTitleTask extends Task{
 	}
 
 	public function onRun(int $tick) : void{
-		$this->player->addTitle(str_replace("{playername}", $this->player->getName(), Main::getMainInstance()->getConfig()->get("join-title")), str_replace("{playername}", $this->player->getName(), Main::getMainInstance()->getConfig()->get("join-title")));
+		$this->player->addTitle(str_replace("{playername}", $this->player->getName(), Main::getMainInstance()->getConfig()->get("join-title")), str_replace("{playername}", $this->player->getName(), Main::getMainInstance()->getConfig()->get("join-subtitle")));
 	}
 }
